@@ -9,30 +9,44 @@ This is a portfolio website (typa.me) built with React, TypeScript, and Vite. It
 ## Build and Development Commands
 
 - **Start development server**: `npm run dev` (runs on port 3000, accessible at http://localhost:3000)
-- **Build for production**: `npm run build` (outputs to `dist/`)
+- **Build for production**: `npm run build` (outputs to `dist/` and copies files to root for GitHub Pages)
 - **Preview production build**: `npm run preview`
+
+### Deployment Workflow
+
+The build process automatically:
+1. Builds the project to `dist/`
+2. Copies the CNAME file to `dist/`
+3. Copies all built files from `dist/` to the root directory
+4. Stages the assets for git commit
+
+After running `npm run build`, commit and push the changes to deploy to GitHub Pages.
 
 ## Architecture
 
 ### Tech Stack
 - **Framework**: React 19.2.0 with TypeScript
 - **Build Tool**: Vite 6.2.0
-- **Styling**: Tailwind CSS (loaded via CDN in index.html)
+- **Styling**: Tailwind CSS v3 with PostCSS and Autoprefixer
 - **Font**: Poppins from Google Fonts
 
 ### Project Structure
 ```
 /
 ├── App.tsx              # Main app component, renders header and project grid
-├── index.tsx            # React entry point
-├── index.html           # HTML template with Tailwind CDN and custom styles
+├── index.tsx            # React entry point (imports index.css)
+├── index.html           # HTML template (source for Vite)
+├── index.css            # Tailwind CSS imports and custom animations
 ├── constants.ts         # PROJECTS array with project data
 ├── types.ts             # TypeScript interfaces (Project)
 ├── components/
 │   ├── Header.tsx       # Hero section with animated gradient title
 │   └── ProjectCard.tsx  # Individual project card with hover effects
 ├── vite.config.ts       # Vite configuration with React plugin
-└── dist/                # Build output (for GitHub Pages deployment)
+├── tailwind.config.js   # Tailwind CSS configuration
+├── postcss.config.js    # PostCSS configuration
+├── assets/              # Built JS and CSS files (copied from dist/)
+└── dist/                # Build output directory
 ```
 
 ### Key Design Patterns
@@ -53,15 +67,25 @@ This is a portfolio website (typa.me) built with React, TypeScript, and Vite. It
 
 ### Styling Approach
 
-The site uses a dark theme with:
-- Background: slate-950 with radial gradient overlays
-- Custom animations: `background-pan` for animated gradients, `fade-in-up` for staggered entrance animations
-- Hover effects: Cards lift up with shadow effects on hover
-- Responsive grid: 1 column on mobile, 2 on tablets, 3 on desktop
+The site uses Tailwind CSS v3 with custom styles defined in [index.css](index.css):
+- **Dark theme**: slate-950 background with radial gradient overlays
+- **Custom animations**:
+  - `background-pan`: Animated gradient for the title
+  - `fade-in-up`: Staggered entrance animations for content
+- **Hover effects**: Cards lift up with shadow effects on hover
+- **Responsive grid**: 1 column on mobile, 2 on tablets, 3 on desktop
+
+All custom CSS (animations, body styles) are in [index.css](index.css), imported in [index.tsx](index.tsx).
 
 ### Deployment
 
-The site deploys to GitHub Pages. The CNAME file configures the custom domain `typa.me`. Build artifacts in `dist/` should be committed for GitHub Pages to serve the site.
+The site deploys to GitHub Pages with custom domain `typa.me` (configured via CNAME file).
+
+**Important**: GitHub Pages serves from the repository root, so built files from `dist/` are copied to the root directory:
+- `assets/` contains the bundled JavaScript and CSS
+- `index.html` in the root is the entry point
+
+The build script (`npm run build`) automatically handles this copying process.
 
 ## Adding New Projects
 

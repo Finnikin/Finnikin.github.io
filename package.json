@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run deploy:copy",
+    "deploy:copy": "cp CNAME dist/ && cp -r dist/* . && git add assets/ index.html dist/CNAME",
     "preview": "vite preview"
   },
   "dependencies": {
