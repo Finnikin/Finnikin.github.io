@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run deploy:copy",
-    "deploy:copy": "cp CNAME dist/ && cp -r dist/* . && git add assets/ index.html dist/CNAME",
+    "build": "cp src.index.html index.html && vite build && npm run deploy:copy",
+    "deploy:copy": "cp CNAME dist/ && cp favicon.svg dist/ && cp -r dist/* . && git add assets/ index.html dist/CNAME dist/favicon.svg favicon.svg",
     "preview": "vite preview"
   },
   "dependencies": {
