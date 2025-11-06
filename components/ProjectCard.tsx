@@ -7,8 +7,10 @@ interface ProjectCardProps {
 }
 
 const ExternalLinkIcon: React.FC<{className?: string}> = ({ className }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path fillRule="evenodd" d="M19.902 4.098a3.75 3.75 0 00-5.304 0l-4.5 4.5a3.75 3.75 0 001.035 6.035l2.47-2.47a.75.75 0 011.06 1.06l-2.47 2.47a5.25 5.25 0 01-7.424-7.424l4.5-4.5a5.25 5.25 0 017.424 0 1.5 1.5 0 01-2.122 2.122l-2.25-2.25a.75.75 0 00-1.06-1.06l2.25 2.25c.62.62.62 1.636 0 2.256l-1.121 1.121a2.25 2.25 0 01-3.182-3.182l4.5-4.5a2.25 2.25 0 013.182 0z" clipRule="evenodd" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
     </svg>
 );
 
