@@ -22,4 +22,18 @@ export const PROJECTS: Project[] = [
     url: 'https://checklist.typa.me',
     thumbnailUrl: `https://s.wordpress.com/mshots/v1/${encodeURIComponent('https://checklist.typa.me')}?w=800&h=600`,
   },
+  {
+    id: 'saasaas',
+    title: 'SAAS As A Service',
+    description: 'Marketing and Automation Software for modern businesses.',
+    url: 'https://saasaas.typa.me',
+    thumbnailUrl: `https://s.wordpress.com/mshots/v1/${encodeURIComponent('https://saasaas.typa.me')}?w=800&h=600`,
+  },
+  {
+    id: 'pagepals',
+    title: 'PagePals',
+    description: 'Online Book Clubs for busy people. Leave notes for your friends at the end of each chapter. Spoilers are a thing of the past!',
+    url: 'https://pagepals.typa.me',
+    thumbnailUrl: `https://s.wordpress.com/mshots/v1/${encodeURIComponent('https://pagepals.typa.me')}?w=800&h=600`,
+  },
 ];
