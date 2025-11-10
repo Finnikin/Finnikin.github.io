@@ -2,11 +2,11 @@ import { Project } from './types';
 
 export const PROJECTS: Project[] = [
   {
-    id: 'locum',
-    title: 'Locum Dashboard',
-    description: 'An invoicing platform for locums.',
-    url: 'https://locum.typa.me',
-    thumbnailUrl: `https://s.wordpress.com/mshots/v1/${encodeURIComponent('https://locum.typa.me')}?w=800&h=600`,
+    id: 'locumas',
+    title: 'LocumAS',
+    description: 'Locum Accounting Software - As easy as LocumAS!',
+    url: 'https://locumas.typa.me',
+    thumbnailUrl: `https://s.wordpress.com/mshots/v1/${encodeURIComponent('https://locumas.typa.me')}?w=800&h=600`,
   },
   {
     id: 'rem',
